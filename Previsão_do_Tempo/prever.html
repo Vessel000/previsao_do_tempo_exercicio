@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do tempo</title>
+
+    <style>
+
+        body{
+            background-image: url(imagens/background.png);
+        }
+        .container{
+            display: table;
+            background-color: rgba(0, 217, 255, 0.432);
+            padding: 20px;
+            padding-bottom: 200px;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 200px;
+
+        }
+
+        .conteudo{
+            display: contents;
+            text-align: center;
+        }
+        #s{
+            background-image: url(imagens/Screenshot_2.png);
+            height: 20px;
+            width: 20px;
+            
+
+        }
+        input{
+            display: flexbox;
+            border-radius: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="conteudo">
+            <h2>Previsão do tempo</h2>
+
+            <input type="text" placeholder="Cidade" id="C">
+            <button onclick="clima()" id="s"></button>
+            <br>
+            
+            <h3>Temperatura minima</h3>
+            <input type="text" disabled placeholder="temperatura minima" id="min">
+            <br>
+            <h3>Temperatura máxima</h3>
+            <input type="text" disabled placeholder="temperatura máxima" id="max">
+            <br>
+            <br>
+            <h3>Sensasão térmica</h3>
+            <input type="text" disabled placeholder="sensação térmica" id="se">
+            
+            
+
+
+
+        </div>
+    </div>
+
+
+    <script>
+        const myArray1 = {"coord":{"lon":-46.1883,"lat":-23.5228},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":21.02,"feels_like":21.06,"temp_min":20.97,"temp_max":23.06,"pressure":1018,"humidity":72,"sea_level":1018,"grnd_level":934},"visibility":10000,"wind":{"speed":2.02,"deg":311,"gust":4.92},"clouds":{"all":88},"dt":1693910790,"sys":{"type":1,"id":8379,"country":"BR","sunrise":1693905130,"sunset":1693947323},"timezone":-10800,"id":3457001,"name":"Mogi das Cruzes","cod":200}
+        const myArray2 = {"coord":{"lon":-46.3108,"lat":-23.5425},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":21.6,"feels_like":21.62,"temp_min":21.05,"temp_max":25.92,"pressure":1018,"humidity":69,"sea_level":1018,"grnd_level":935},"visibility":10000,"wind":{"speed":2.3,"deg":313,"gust":4.62},"clouds":{"all":90},"dt":1693911208,"sys":{"type":1,"id":8379,"country":"BR","sunrise":1693905160,"sunset":1693947351},"timezone":-10800,"id":3447212,"name":"Suzano","cod":200}
+        const myArray3 = {"coord":{"lon":-46.6361,"lat":-23.5475},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":22.56,"feels_like":23.04,"temp_min":20.94,"temp_max":25.81,"pressure":1020,"humidity":83},"visibility":10000,"wind":{"speed":4.63,"deg":330},"clouds":{"all":0},"dt":1693911477,"sys":{"type":1,"id":8394,"country":"BR","sunrise":1693905238,"sunset":1693947429},"timezone":-10800,"id":3448439,"name":"São Paulo","cod":200}
+
+        function clima(){
+            cidade = document.getElementById("C").value
+            if (cidade == "Mogi Das Cruzes"){
+
+                document.getElementById("min").value = myArray1.main.temp_min
+                document.getElementById("max").value = myArray1.main.temp_max
+                
+                document.getElementById("se").value = myArray1.main.feels_like
+
+            }
+            if (cidade == "Suzano"){
+
+                document.getElementById("min").value = myArray2.main.temp_min
+                document.getElementById("max").value = myArray2.main.temp_max
+                
+                document.getElementById("se").value = myArray2.main.feels_like
+
+            }
+            if (cidade == "São Paulo"){
+
+                document.getElementById("min").value = myArray3.main.temp_min
+                document.getElementById("max").value = myArray3.main.temp_max
+                
+                document.getElementById("se").value = myArray3.main.feels_like
+
+            }
+
+        }
+    </script>
+</body>
+</html>
